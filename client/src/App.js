@@ -19,7 +19,39 @@ const ReactAdminWrapper = () => {
   useEffect(() => {
     (async () => {
       try {
-        const dataProvider = await pgDataProvider(client, [{ extends: true }]);
+        const dataProvider = await pgDataProvider(client, {
+          typeMap: {
+            Location: {
+              includeFields: ['location'],
+              computeArgumentsForField: (fieldName, ...rest) => {
+                if (fieldName === 'location') {
+                  console.log(fieldName, rest);
+                  return { location: null }
+                }
+                return null
+              },
+            },
+            Event: {
+              includeFields: ['timeRequired'],
+              computeArgumentsForField: (fieldName, ...rest) => {
+                if (fieldName === 'timeRequired') {
+                  console.log(fieldName, rest);
+                  return {
+                    timeRequired: {
+                      days: 10,
+                      hours: 10,
+                      minutes: 10,
+                      months: 10,
+                      seconds: 1.5,
+                      years: 10
+                    }
+                  }
+                }
+                return null
+              },
+            },
+          },
+        });
         setDataProvider(() => dataProvider);
       } catch (error) {
         console.log(error);
