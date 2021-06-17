@@ -1,0 +1,67 @@
+{
+  "name": "dummy-contact",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.3.19",
+    "@apollo/react-hooks": "3.1.5",
+    "@bb-tech/ra-treemenu": "^1.0.5",
+    "@material-ui/lab": "^4.0.0-alpha.58",
+    "apollo-boost": "0.4.9",
+    "apollo-upload-client": "13.0.0",
+    "geojson": "^0.5.0",
+    "graphql": "15.3.0",
+    "graphql-tag": "2.10.4",
+    "leaflet": "^1.7.1",
+    "lodash": "^4.17.21",
+    "material-ui-audio-player": "^1.6.2",
+    "prop-types": "15.7.2",
+    "ra-data-graphql": "3.6.1",
+    "ra-data-json-server": "3.7.1",
+    "ra-input-markdown": "^1.1.7",
+    "ra-postgraphile": "3.1.1",
+    "react": "16.13.1",
+    "react-admin": "3.15.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint --fix .",
+    "lint:css": "stylelint './**/*.js'",
+    "deploy": "AWS_PROFILE=dashboard aws s3 sync build/ s3://dbe-react-admin",
+    "invalidate": "AWS_PROFILE=dashboard aws cloudfront create-invalidation --distribution-id E1ZP35C1F4HU97 --paths \"/*\"",
+    "deploy:all": "npm run build && npm run deploy && npm run invalidate"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "6.6.0",
+    "eslint-config-standard": "14.1.1",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "23.18.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "eslint-plugin-standard": "4.0.1",
+    "eslint-plugin-unicorn": "21.0.0",
+    "stylelint": "13.6.1",
+    "stylelint-config-recommended": "3.0.0",
+    "stylelint-config-styled-components": "0.1.1",
+    "stylelint-processor-styled-components": "1.10.0"
+  }
+}

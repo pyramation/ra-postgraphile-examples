@@ -1,0 +1,12 @@
+version: "2"
+services:
+  postgres:
+    container_name: ra-postgraphile-postgres
+    image: pyramation/postgis
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=password"
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
