@@ -24,6 +24,18 @@ const ReactAdminWrapper = () => {
             Interval: {
               expand: true
             },
+            GeometryPoint: {
+              expand: true,
+              queryValueToInputValue: (value) => value.geojson,
+            },
+            GeometryGeometry: {
+              expand: true,
+              queryValueToInputValue: (value) => value.geojson,
+            },
+            GeographyPoint: {
+              expand: true,
+              queryValueToInputValue: (value) => value.geojson,
+            },
           },
         });
         setDataProvider(() => dataProvider);
