@@ -22,7 +22,10 @@ const ReactAdminWrapper = () => {
         const dataProvider = await pgDataProvider(client, {
           typeMap: {
             Interval: {
-              expand: true
+              expand: true,
+              queryValueToInputValue: ({__typename, ...value} = {}) => {
+                return value;
+              }
             },
             GeometryPoint: {
               expand: true,

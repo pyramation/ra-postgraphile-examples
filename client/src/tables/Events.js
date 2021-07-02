@@ -17,7 +17,7 @@ export const EventList = (props) => {
         <TextField source="id" />
         <TextField source="name" />
         <TextField source="description" />
-        <TextField source="time_required" />
+        {/* <TextField source="time_required" /> */}
         <EditButton basePath="/events" />
       </Datagrid>
     </List>
@@ -35,7 +35,7 @@ export const EventEdit = (props) => {
         <TextInput disabled source="id" />
         <TextInput source="name" />
         <TextInput source="description" />
-        <TextInput source="time_required" />
+        {/* <TextInput source="time_required" /> */}
       </SimpleForm>
     </Edit>
   );
@@ -47,7 +47,7 @@ export const EventCreate = (props) => {
       <SimpleForm>
         <TextInput source="name" />
         <TextInput source="description" />
-        <TextInput source="time_required" />
+        {/* <TextInput source="time_required" /> */}
       </SimpleForm>
     </Create>
   );
